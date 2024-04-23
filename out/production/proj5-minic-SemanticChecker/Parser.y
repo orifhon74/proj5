@@ -1,3 +1,9 @@
+//---------------------------------------------------------------------
+// Name : Orifkhon Kilichev
+// Email: omk5087@psu.edu
+// Class: CMPSC 470-001, Spring 2024
+//---------------------------------------------------------------------
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Copyright (C) 2001 Gerwin Klein <lsf@jflex.de>                          *
  * All rights reserved.                                                    *
@@ -95,7 +101,8 @@ stmt            : assign_stmt                                   { Debug("stmt ->
                 | compound_stmt                                 { Debug("stmt -> compound_stmt"                  ); $$ = stmt____compoundstmt($1); }
                 ;
 
-assign_stmt     : IDENT ASSIGN expr SEMI                       { Debug("assign_stmt -> IDENT ASSIGN expr SEMI"   ); $$ = assignstmt____IDENT_ASSIGN_expr_SEMI($1,$2,$3,$4); }
+assign_stmt     : IDENT ASSIGN expr SEMI                        { Debug("assign_stmt -> IDENT := expr ;"); $$ = assignstmt____IDENT_ASSIGN_expr_SEMI($1,$2,$3,$4); }
+                | IDENT LBRACKET expr RBRACKET ASSIGN expr SEMI { Debug("assign_stmt -> IDENT [ expr ] := expr ;"); $$ = assignstmt____IDENT_LBRACKET_expr_RBRACKET_ASSIGN_expr_SEMI($1,$2,$3,$4,$5,$6,$7); }
                 ;
 
 print_stmt      : PRINT expr SEMI                              { Debug("print_stmt -> PRINT expr SEMI"          ); $$ = printstmt____PRINT_expr_SEMI($1,$2,$3); }

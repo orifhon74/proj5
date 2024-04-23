@@ -24,6 +24,7 @@
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Stack;
 
 public class ParseTreeInfo
@@ -38,6 +39,9 @@ public class ParseTreeInfo
     }
     public static class FuncDeclInfo
     {
+        Token functionName;
+        ParseTree.TypeSpec returnType;
+        List<ParseTree.Param> params;
     }
     public static class ParamInfo
     {
@@ -53,5 +57,7 @@ public class ParseTreeInfo
     }
     public static class ExprInfo
     {
+        String type;
     }
+
 }
